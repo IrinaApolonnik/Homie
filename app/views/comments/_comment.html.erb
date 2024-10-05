@@ -1,27 +1,13 @@
-<div id="<%= dom_id comment %>">
-  <p>
-    <strong>Id:</strong>
-    <%= comment.id %>
-  </p>
+<div class="collectionComment">
+<h5>
+  <%= comment.commenter %>
+</h5>
 
-  <p>
-    <strong>Collection:</strong>
-    <%= comment.collection_id %>
-  </p>
+<p>
+  <%= comment.body %>
+</p>
 
-  <p>
-    <strong>Content:</strong>
-    <%= comment.content %>
-  </p>
-
-  <p>
-    <strong>Created at:</strong>
-    <%= comment.created_at %>
-  </p>
-
-  <p>
-    <strong>Updated at:</strong>
-    <%= comment.updated_at %>
-  </p>
-
+<p class="deleteComment">
+  <%= link_to 'Удалить', [comment.collection, comment], data: { turbo_stream: false, turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+</p>
 </div>

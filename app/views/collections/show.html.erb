@@ -1,34 +1,43 @@
 <p style="color: green"><%= notice %></p>
 
-  <h1>
-    <%= @collection.title %>
-  </h1>
+<div class="collectionShow">
+  <img src="<%= @collection.image_url %>" class="collectionImage">
+  
+  <div class="collectionInfo">
+    <div class="dateAndActions">
+      <p class="createdAt">
+        <%= @collection.created_at.strftime("%-d %B %Y в %H:%M") %>
+      </p>
+      <div>&#8230;</div>
 
-  <p>
-    <%= @collection.description %>
-  </p>
+    </div>
 
-  <p>
-    <%= @collection.image_url %>
-  </p>
+    <div class="selectedTags"> <%= render @collection.selected_tags %> </div>
 
-  <p>
-    <%= @collection.created_at %>
-  </p>
+    <h1 class="collectionTitle"> <%= @collection.title %> </h1>
 
+    <p class="collectionDescription"> <%= @collection.description %> </p>
 
-  <div class="selectedTags">
-    <%= render collection.selected_tags %>
+    <div> <%= render @collection.items %> </div>
+    
   </div>
-
-
-<div>
-  <%= link_to "Edit this collection", edit_collection_path(@collection) %> |
-  <%= link_to "Back to collections", collections_path %>
-
-  <%= button_to "Destroy this collection", @collection, method: :delete %>
 </div>
 
-<div>
-  <%= render @collection.items %>
+<div class="backToCollections">
+  <%= link_to "⬅", collections_path %>
+</div>
+
+<div class="collectionComments">
+  <h2>Комментарии</h2>
+  
+  <% if @collection.comments.any? %>
+    <%= render @collection.comments %>
+  <% else %>
+    <p>Пока нет комментариев.</p>
+  <% end %>
+</div>
+
+<div class="addCollectionComment">
+  <h3>Добавить комментарий</h3>
+  <%= render "comments/form" %>
 </div>

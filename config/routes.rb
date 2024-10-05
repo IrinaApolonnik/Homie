@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
-  resources :comments
+  get "welcome/index"
+  get "welcome/about"
   resources :likes
   resources :tags
   resources :selected_tags
   resources :items
   resources :collections
+
+  resources :collections do
+    resources :comments
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -16,5 +21,5 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  root "collections#index"
+  root "welcome#index"
 end

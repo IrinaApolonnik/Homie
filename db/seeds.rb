@@ -139,6 +139,7 @@
   "Эко-стиль в ванной комнате — это сочетание природы и комфорта, создающее расслабляющую атмосферу.",
   "Выбор правильного кресла для рабочего места — залог комфорта и продуктивности."
 ]
+@prices = (100..1000).step(50).to_a
 
 def seed
   reset_db
@@ -165,13 +166,16 @@ def create_collections(quantity)
 end
 
 def create_items(quantity)
-  Collection.all.each do |collection|
-    quantity.to_a.sample.times do
-      item = collection.items.create!(name: @items.sample)
-      puts "Item with name #{item.name} for project with title #{item.collection.title} just created"
+    Collection.all.each do |collection|
+      quantity.to_a.sample.times do
+        item = collection.items.create!(
+          name: @items.sample,
+          price: @prices.sample 
+        )
+        puts "Item with name #{item.name} for project with title #{item.collection.title} just created with price #{item.price}"
+      end
     end
   end
-end
 
 def create_selected_tags
   Collection.all.each do |collection|
