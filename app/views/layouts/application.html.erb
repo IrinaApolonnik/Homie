@@ -18,6 +18,14 @@
   </head>
 
   <body>
+    <nav class="S_MenuBar">
+      <%= link_to "Главная", root_url %>
+      <%= link_to "Подборки", collections_url %>
+      <%= link_to "Вещи", items_url %>
+      <%= link_to "Теги", tags_url %>
+    </nav>
+    
+
     <%= yield %>
   </body>
 </html>

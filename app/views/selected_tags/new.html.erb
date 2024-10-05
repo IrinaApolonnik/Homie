@@ -1,0 +1,11 @@
+<% content_for :title, "New selected tag" %>
+
+<h1>New selected tag</h1>
+
+<%= render "form", selected_tag: @selected_tag %>
+
+<br>
+
+<div>
+  <%= link_to "Back to selected tags", selected_tags_path %>
+</div>

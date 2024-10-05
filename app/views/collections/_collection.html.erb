@@ -1,0 +1,11 @@
+<div id="<%= dom_id collection %>" class="collection">
+  <p class="createdAt">
+    <%= collection.created_at.strftime("%-d %B %Y в %H:%M") %>
+  </p>
+  
+  <h4 class="collectionTitle">
+    <%= collection.title %>
+  </h4>
+
+  <img src="<%= collection.image_url %>" class="collectionImage">
+</div>

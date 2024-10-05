@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Selected tags" %>
+
+<h1>Selected tags</h1>
+
+<div id="selected_tags">
+  <% @selected_tags.each do |selected_tag| %>
+    <%= render selected_tag %>
+    <p>
+      <%= link_to "Show this selected tag", selected_tag %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New selected tag", new_selected_tag_path %>

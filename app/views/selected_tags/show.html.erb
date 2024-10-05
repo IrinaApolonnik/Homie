@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @selected_tag %>
+
+<div>
+  <%= link_to "Edit this selected tag", edit_selected_tag_path(@selected_tag) %> |
+  <%= link_to "Back to selected tags", selected_tags_path %>
+
+  <%= button_to "Destroy this selected tag", @selected_tag, method: :delete %>
+</div>
